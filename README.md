@@ -6,13 +6,13 @@ example javascript library module
 
 (1) Including the library, see index.html
 
-<script src='metrics.js'></script>
+	<script src='metrics.js'></script>
 
 (2) Accessing the API, see index.html
 
 For simplicity, there are 2 APIs, query(), and write() which simple log some info to the console. You can use Google Chrome Developers Tool to inspect the output
 
-https://developer.chrome.com/devtools
+[Dev Tools](https://developer.chrome.com/devtools)
 
 Call the query API:
 
@@ -52,18 +52,22 @@ NOTE:
 * the passed in window is a global variable defined by the browser. Our module is attached to the window object
 * the MetricsImplementation function acts as a singleton, its initialized once:
 
- function MetricsImplementation(){
+````
+function MetricsImplementation(){
     var impl = {};
+````
 
 And we ensure that it isn’t initialized again:
 
+````
   if (typeof(window.metrics) === 'undefined'){
     window.metrics = MetricsImplementation();
   }
+````
 
 The module implementation is returned by the function and set to the window.metrics variable above in ‘browser public(global) state:
 
- return impl;
+	return impl;
 
 Public functions, the Module's API, are attached to our exported module variable impl:
 
@@ -78,8 +82,8 @@ Public functions, the Module's API, are attached to our exported module variable
 
 Private functions are not exposed in the API, but are available to be used by the API implementations:
 
- function myPrivateFunction() {
-      console.log("... private ....")
-    }
+ 	function myPrivateFunction() {
+      		console.log("... private ....")
+ 	}
 
 There are much more rich Javascript frameworks like React, VueJS and Angular. This frameworks are also built upon JavaScript principals like function scoping to abstract libraries as easily usable APIs. There are also conventions for packaging modules like CommonJS and AMD that follow this similar IIFE pattern.
