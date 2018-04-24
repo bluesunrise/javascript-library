@@ -43,7 +43,7 @@ In JavaScript, every function, when invoked, creates a new execution context. Be
 
 ````
 (function(window){
-…. the privately scoped context, the module private implementation goes here
+   // the privately scoped context, the module private implementation goes here
 })(window); 
 ````
 
