@@ -41,9 +41,11 @@ It is conventional to name the exported library entry point variable to the same
 
 In JavaScript, every function, when invoked, creates a new execution context. Because variables and functions defined within a function may only be accessed inside, but not outside, that context (scope), invoking a function provides an easy way to create privacy, effectively hiding the implementation details, and only exposing the API. This is how we create a module, or library in JavaScript using an Immediately Invoked Function Expression (IIFE):
 
+````
 (function(window){
 …. the privately scoped context, the module private implementation goes here
 })(window); 
+````
 
 NOTE:
 * the function is executed immediately when it is loaded in the script, allowing for module initialization phase prior to using it 
