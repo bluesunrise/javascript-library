@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src='metrics.js'></script>
+<script>
+	metrics.query("select * from cpu");
+	metrics.write(
+		{ service: 'cpu', 
+		  value: 2005, 
+		  tags: [{'tag0': 'australia'}]
+	});
+	try {
+		metrics.myPrivateFunction();
+	}
+	catch(e) {
+		console.log("Error: ", e);
+	}
+</script>
+</head>
+<body>
+<h1>Example Javascript Library</h1>
+</body>
+</html>
